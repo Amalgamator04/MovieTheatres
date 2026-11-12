@@ -85,6 +85,17 @@ python manage.py runserver
 
 The API is available at `http://127.0.0.1:8000/api/`. To access Django admin, create an administrator with `python manage.py createsuperuser`.
 
+### Run the WSGI server on Windows
+
+Gunicorn requires POSIX modules such as `fcntl` and cannot run natively on Windows. The requirements install Waitress on Windows and Gunicorn on Linux. For a Windows WSGI run, collect Django's admin static files and start Waitress from `backend`:
+
+```powershell
+python manage.py collectstatic --noinput
+waitress-serve --listen=127.0.0.1:8000 config.wsgi:application
+```
+
+Open `http://127.0.0.1:8000/admin/` for the Django admin. For Linux deployments, use `gunicorn config.wsgi:application --bind 0.0.0.0:8000` and configure the host, database, and secret environment variables for that deployment.
+
 ## Run the frontend
 
 In a second PowerShell terminal:
