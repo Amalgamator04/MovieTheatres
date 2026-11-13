@@ -2,6 +2,8 @@
 
 MovieMate is a responsive movie-ticket booking app built with React and Django REST Framework. It includes a playful claymorphism-inspired interface, token authentication, theatre/show listings, live seat availability, and server-validated bookings.
 
+For a quick reference to API routes, frontend API calls, and local/Render environment variables, see [API_AND_ENV_GUIDE.md](./API_AND_ENV_GUIDE.md).
+
 ## Technology
 
 - **Frontend:** React 18, Vite, Tailwind CSS, React Router, Axios, Lucide React
